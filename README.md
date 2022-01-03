@@ -37,7 +37,7 @@ The basic algorithm is:
  4. Downscale everything by factor 2. This can produce grey pixels.
  5. Convert to binary bitmap by turning all grey pixels black.
 
-Except for some necessary adding and removing of border pixels from the images, that's it! As an example, here is how morphonts transforms the ampersand glyph from [UW ttyp0](https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/) from sizes 15 and 22 to 29 and 43. (The images were magnified by factor 10 for better visibility.)
+Except for some necessary adding and removing of border pixels from the images, that's it! As an example, here is how morphonts transforms the "%" and "R" glyph from [UW ttyp0](https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/) from sizes 15 and 22 to 29 and 43. (The images were magnified by factor 10 for better visibility.)
 
 | "&", 15 to 29                                                                                 | "&", 22 to 43                                                                                 | "R", 15 to 29                                                                         | "R", 22 to 43                                                                         |
 |-----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|

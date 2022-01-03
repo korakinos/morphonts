@@ -35,21 +35,14 @@ The basic algorithm is:
 
 Except for some necessary adding and removing of border pixels from the images, that's it! As an example, here is how morphonts transforms the ampersand glyph from [UW ttyp0](https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/) from sizes 15 and 22 to 29 and 43. (The images were magnified by factor 10 for better visibility.)
 
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | 15 to 29                                                                            | 22 to 43                                                                            |
 |-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![Original](/pictures/sequences/t0-15-uni/ampersand/scale-10/0.png)                           | ![Original](/pictures/sequences/t0-22-uni/ampersand/scale-10/0.png)                           |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![upscale by 4](/pictures/sequences/t0-15-uni/ampersand/scale-10/1.png)                       | ![upscale by 4](/pictures/sequences/t0-22-uni/ampersand/scale-10/1.png)                       |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![reinforce diagonal strokes](/pictures/sequences/t0-15-uni/ampersand/scale-10/4.png)         | ![reinforce diagonal strokes](/pictures/sequences/t0-22-uni/ampersand/scale-10/4.png)         |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![shrink vertically and horizontally](/pictures/sequences/t0-15-uni/ampersand/scale-10/6.png) | ![shrink vertically and horizontally](/pictures/sequences/t0-22-uni/ampersand/scale-10/6.png) |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![downscale by 0.5](/pictures/sequences/t0-15-uni/ampersand/scale-10/7.png)                   | ![downscale by 0.5](/pictures/sequences/t0-22-uni/ampersand/scale-10/7.png)                   |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 | ![convert to binary](/pictures/sequences/t0-15-uni/ampersand/scale-10/8.png)                  | ![convert to binary](/pictures/sequences/t0-22-uni/ampersand/scale-10/8.png)                  |
-|-------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------|
 
 
 ## Showcase
@@ -58,16 +51,16 @@ A few examples of morphonts. Pictures generated with `pilfont.py` from [pillow-s
 
 ## [UW ttyp0](https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/), size 31 (from 16)
 
-[ttyp0-morphont regular, size 31](/pictures/samples/t0-31-uni.pbm)
-[ttyp0-morphont italic, size 31](/pictures/samples/t0-31i-uni.pbm)
-[ttyp0-morphont bold, size 31](/pictures/samples/t0-31b-uni.pbm)
+[ttyp0-morphont regular, size 31](/pictures/samples/t0-31-uni.png)
+[ttyp0-morphont italic, size 31](/pictures/samples/t0-31i-uni.png)
+[ttyp0-morphont bold, size 31](/pictures/samples/t0-31b-uni.png)
 
 ### [Dina](https://www.dcmembers.com/jibsen/download/61/), size 19 (from 10)
 
-[dina-morphont regular, size 19](/pictures/samples/Dina_r400-19.pbm)
-[dina-morphont italic, size 19](/pictures/samples/Dina_i400-19.pbm)
-[dina-morphont bold, size 19](/pictures/samples/Dina_r700-19.pbm)
-[dina-morphont bold italic, size 19](/pictures/samples/Dina_i700-19.pbm)
+[dina-morphont regular, size 19](/pictures/samples/Dina_r400-19.png)
+[dina-morphont italic, size 19](/pictures/samples/Dina_i400-19.png)
+[dina-morphont bold, size 19](/pictures/samples/Dina_r700-19.png)
+[dina-morphont bold italic, size 19](/pictures/samples/Dina_i700-19.png)
 
 ### others
 

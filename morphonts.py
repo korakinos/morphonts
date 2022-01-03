@@ -7,8 +7,6 @@ import bdflib.reader
 import bdflib.writer
 import sys
 
-# default_font = "../fonts/mplus_h12r-euro.bdf"
-
 
 def glyph_bytes(glyph):
     byte_data = bytearray()

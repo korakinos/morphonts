@@ -1,4 +1,4 @@
-# morphonts -- upscaling bitmap fonts with morphological operations
+# morphonts. Upscaling bitmap fonts with morphological operations
 
 morphonts tries to address a common problem of using bitmap fonts on high-resolution monitors: They appear much smaller than on the low-resolution displays for which they are usually designed, so that even a typeface's largest available size can be to small to be comfortably usable.
 

@@ -11,7 +11,7 @@ This script uses a custom set of operations from [Mathematical Morphology](https
 
 Python 3 modules:
  - bdflib
- - PIL
+ - pillow
 
 
 ## Usage
@@ -89,7 +89,7 @@ If your intended application can use fonts in BDF format (like many terminal emu
 
 ### Morphology stuff
 
-morphonts uses the morphology module from [PIL](https://pillow.readthedocs.io/en/latest/reference/ImageMorph.html).
+morphonts uses the morphology module from [pillow](https://pillow.readthedocs.io/en/latest/reference/ImageMorph.html).
 
 Another morphology module for python is in [scikit-image](https://scikit-image.org/docs/stable/api/skimage.morphology.html), but it doesn't appear to support custom kernels.
 
@@ -101,6 +101,6 @@ morphonts uses [bdflib](https://bdflib.readthedocs.io/en/latest/about.html). The
 
 [Monobit](https://github.com/robhagemans/monobit) is another python package for reading and writing bitmap fonts.
 
-Some other libraries (including [PIL](https://pillow.readthedocs.io/en/latest/reference/ImageFont.html)) support reading and rendering, but not editing and writing bitmap fonts.
+Some other libraries (including [pillow](https://pillow.readthedocs.io/en/latest/reference/ImageFont.html)) support reading and rendering, but not editing and writing bitmap fonts.
 
-`pilfont.py` from [pillow-scripts](https://github.com/python-pillow/pillow-scripts), while intended for converting bdf fonts to PIL's font format, also prints handy preview images of fonts. It's what I used for the samples above.
+`pilfont.py` from [pillow-scripts](https://github.com/python-pillow/pillow-scripts), while intended for converting bdf fonts to pillow's font format, also prints handy preview images of fonts. It's what I used for the samples above.

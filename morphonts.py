@@ -90,7 +90,10 @@ img_ops = [
     lambda img: morph(img, 1),
     lambda img: crop(img, 2),
     lambda img: scale(img, 0.5, Image.BOX),
-    lambda img: img.point((lambda v: 255 if (v == 255) else 0), "L"),
+    lambda img: img.point((lambda v: 255 if (v >= 3 / 4 * 256) else 0), "L"),
+    # A different threshold (turning all "grey" values to black) would produce
+    # smoother bold fonts, but artifacts in regular fonts:
+    #lambda img: img.point((lambda v: 255 if (v == 255) else 0), "L"),
 ]
 
 # The numeric operations of this rescale function depend on the morphological

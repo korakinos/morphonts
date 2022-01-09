@@ -35,7 +35,9 @@ The basic algorithm is:
  2. Morphologically reinforce diagonal strokes.
  3. Morphologically shrink everything horizontally and vertically.
  4. Downscale everything by factor 2. This can produce grey pixels.
- 5. Convert to binary bitmap by turning all grey pixels black.
+ 5. Convert grey pixels to black/white using a threshold.
+
+Step 5 allows for some variability: If the threshold is set to almost-white, so that all grey pixels are accepted as black, the algorithm produces knobby artifacts in corners and intersections of strokes. A threshold of 75% brightness, on the other hand, avoids these artifacts, but produces step-like structures in fonts with two or more pixels wide strokes, especially in bold fonts, which may not be to everyone's preference. At the moment, morphonts uses the second method exclusively.
 
 Except for some necessary adding and removing of border pixels from the images, that's it! As an example, here is how morphonts transforms the "%" and "R" glyph from [UW ttyp0](https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/) from sizes 15 and 22 to 29 and 43. (The images were magnified by factor 10 for better visibility.)
 
@@ -69,11 +71,6 @@ A few examples of morphonts. Pictures generated with `pilfont.py` from [pillow-s
 ### others
 
 Another beautiful font to scale up with morphont is the proportional/non-monospace (!) **hlv** from the [**M+** bitmap font family](https://tracker.debian.org/pkg/xfonts-mplus). Unfortunately the spacing comes out far too narrow in `pilfont.py`'s rendering. If anyone manages to generate a good sample image, I would be happy to include it here.
-
-
-## Future improvements
-
-morphonts produces characteristic knobby artifacts in stroke intersections. Quite possibly these could be eliminated with additional, more specialised morphological operations which would target these artifects selectively. Though it is possible that such operations would produce new artifacts of their own.
 
 
 ## Notes on installing fonts

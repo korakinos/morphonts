@@ -14,6 +14,11 @@ Python 3 modules:
  - pillow
 
 
+## Installation
+
+morphonts is is not available as an installable software package at the moment. You can run `morphonts.py` from wherever you saved it to, provided that Python 3 and the required modules are installed on your system.
+
+
 ## Usage
 
 morphonts works on bitmap fonts in BDF format. It expects an input and an output filename/path as command line arguments.

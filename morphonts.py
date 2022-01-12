@@ -3,6 +3,7 @@
 from PIL import Image
 from PIL.ImageMorph import MorphOp
 from PIL.ImageOps import expand, crop, scale
+import argparse
 import bdflib.reader
 import bdflib.writer
 import sys
@@ -82,6 +83,7 @@ def morph(image, number):
 
 
 # list of image operations in order in the format of function(Image) -> Image
+# (img_ops_bold for "--bold" algorithm)
 img_ops = [
     lambda img: scale(img, 4, Image.NEAREST),
     lambda img: expand(img, 2, 255),
@@ -90,11 +92,11 @@ img_ops = [
     lambda img: morph(img, 1),
     lambda img: crop(img, 2),
     lambda img: scale(img, 0.5, Image.BOX),
-    lambda img: img.point((lambda v: 255 if (v >= 3 / 4 * 256) else 0), "L"),
-    # A different threshold (turning all "grey" values to black) would produce
-    # smoother bold fonts, but artifacts in regular fonts:
-    #lambda img: img.point((lambda v: 255 if (v == 255) else 0), "L"),
 ]
+img_ops_bold = img_ops.copy()
+img_ops.append(lambda img: img.point((lambda v: 255 if (v >= 3 / 4 * 256) else 0), "L"))
+img_ops_bold.append(lambda img: img.point((lambda v: 255 if (v == 255) else 0), "L"))
+
 
 # The numeric operations of this rescale function depend on the morphological
 # operations above, of course. Change it when you change them!
@@ -105,7 +107,7 @@ def morph_rescale(measure):
         return measure
 
 
-def process_font(font_path):
+def process_font(font_path, bold=False):
     # bdflib.reader doesn't read the FACE_NAME property, only reading FONT as
     # what is indexed as "FACE_NAME" in bdflib.model.Font.properties, and
     # bdflib.writer incorrectly overwrites it with that value on writing. So we
@@ -208,8 +210,12 @@ def process_font(font_path):
         img = img_from_glyph(glyph)
 
         # run morph operations
-        for op in img_ops:
-            img = op(img)
+        if bold:
+            for op in img_ops_bold:
+                img = op(img)
+        else:
+            for op in img_ops:
+                img = op(img)
 
         # image to new glyph in new font (by updating old glyph in-place
         # first)
@@ -263,15 +269,24 @@ def write_font(font_model, output_filename):
 
 
 if __name__ == "__main__":
-    try:
-        input_path = sys.argv[1]
-        output_path = sys.argv[2]
-    except IndexError:
-        print(f"Usage: {sys.argv[0]} <infile> <outfile>")
-        sys.exit(1)
+    # try:
+    #     input_path = sys.argv[1]
+    #     output_path = sys.argv[2]
+    # except IndexError:
+    #     print(f"Usage: {sys.argv[0]} <infile> <outfile>")
+    #     sys.exit(1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input", help="path to input file")
+    parser.add_argument("output", help="path to output file")
+    parser.add_argument("--bold", help="optimise for bold fonts", action="store_true")
+    args = parser.parse_args()
+
+    input_path = args.input
+    output_path = args.output
+    bold_flag = args.bold
 
     try:
-        write_font(process_font(input_path), output_path)
+        write_font(process_font(input_path, bold_flag), output_path)
     except FileNotFoundError as e:
         print("Error " + e.errno + ", file not found: " + e.filename)
         print(e.strerror)

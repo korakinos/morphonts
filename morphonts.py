@@ -1,12 +1,17 @@
 #!/usr/bin/python3
 
+import argparse
+import sys
+
 from PIL import Image
 from PIL.ImageMorph import MorphOp
 from PIL.ImageOps import expand, crop, scale
-import argparse
+
+import pkg_resources
+
+pkg_resources.require("bdflib==1.1.3")
 import bdflib.reader
 import bdflib.writer
-import sys
 
 
 def glyph_bytes(glyph):
